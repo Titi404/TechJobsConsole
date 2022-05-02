@@ -63,7 +63,9 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        //Console.WriteLine("duhhhhhhh");
+                        searchResults = JobData.FindByValue(searchTerm); // fix diz when understood wdf it is.
+                        PrintJobs(searchResults);
                     }
                     else
                     {
@@ -73,6 +75,7 @@ namespace TechJobsConsole
                 }
             }
         }
+
 
         /*
          * Returns the key of the selected item from the choices Dictionary
@@ -116,9 +119,38 @@ namespace TechJobsConsole
             return choiceKeys[choiceIdx];
         }
 
-        private static void PrintJobs(List<Dictionary<string, string>> someJobs)
+        public static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("PrintJobs is not implemented yet");
+            //string searchyKey = "";
+            //string searchyVal = "";
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("Job not found");
+            }
+            foreach (Dictionary<string, string> job in someJobs)
+            {
+                //Console.WriteLine($" {job[keys]} : {job[values]}");
+                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <<<bcoz I can't use emoji! SO MAD");
+                foreach (KeyValuePair<string, string> key in job)
+                {
+
+                    Console.WriteLine($"{key.Key}\t : {key.Value}");
+                }
+
+                //foreach (string value in job.Values)
+                //{
+                //    searchyVal = (job[value]);
+                //    Console.WriteLine(searchyVal);
+                //}
+                //Console.WriteLine(job.Contains(searchy)); 
+
+                //foreach (string value in job.Values)
+                //{
+                //    Console.WriteLine(job[value]);
+                //}
+
+                //Console.WriteLine($"{job[key]} : {job[value]}");
+            }
         }
     }
 }
